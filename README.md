@@ -5,6 +5,7 @@ A production-grade multi-agent debate system using **LangChain**, **LangGraph**,
 ## Features
 
 - **Multi-Agent Architecture**: Proponent, Opposition, and Judge agents with distinct personas
+- **Interactive Web UI**: Chat-based Streamlit interface with real-time streaming and export options
 - **Structured Prompts**: Role/Instructions/Constraints/Output format prevents repetition and drift
 - **State Management**: Typed LangGraph state with additive history (immutable)
 - **Production Safeguards**: Retry logic, output validation, length caps
@@ -30,6 +31,24 @@ cp .env.example .env
 ```
 
 ### 3. Run a Debate
+
+#### New! Streamlit Web UI (Recommended)
+
+The easiest way to use the system is the interactive chat UI:
+
+```bash
+streamlit run app.py
+```
+
+Then open http://localhost:8501 and enter your debate topic.
+
+Features:
+- Real-time debate streaming with thinking indicators
+- Interactive model selector and debate controls
+- Export transcripts to Markdown/JSON
+- Visual judge verdict panel
+
+#### CLI Usage
 
 ```bash
 # Basic usage
@@ -84,6 +103,7 @@ python main.py --topic "Climate change is reversible" --verbose
 
 ```
 debate_agent/
+├── app.py               # Streamlit web UI
 ├── src/
 │   ├── __init__.py      # Package exports
 │   ├── config.py        # Configuration management
